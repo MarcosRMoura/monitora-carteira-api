@@ -5,6 +5,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
-    <include  file="config/liquibase/changelog/20210114202900_create_entity_ativo.xml"/>
-    <include file="config/liquibase/changelog/20210117001900_create_entity_corretora"/>
+    <include file="config/liquibase/changelog/20210114202900_create_entity_ativo.xml"/>
+    <include file="config/liquibase/changelog/20210117001900_create_entity_corretora.xml"/>
+    <include file="config/liquibase/changelog/20210117011200_create_entity_usuario.xml"/>
 </databaseChangeLog>

@@ -27,13 +27,13 @@ public class CorretoraResource {
      * @return List CorretoraDTO
      */
     @GetMapping("/{nome}")
-    public ResponseEntity<List<CorretoraDTO>> consultaCorretoraporLike(@PathVariable("nome") String nome) {
+    public ResponseEntity<List<CorretoraDTO>> consultaCorretoraPorLike(@PathVariable("nome") String nome) {
         log.debug("Requisição para retornar Corretoras que contém letras pesquisadas : {}", nome);
-        return ResponseEntity.ok(corretoraService.consultaLikeCorretora(nome));
+        return ResponseEntity.ok(corretoraService.consultaCorretoraPorLike(nome));
     }
 
     /**
-     * GET /api/corretora/id/{id}: Busca de Corretoras apartir do id
+     * GET /api/corretora/id/{id}: Busca de Corretora apartir do id
      *
      * @param id: Id para busca de Corretoras
      * @return List CorretoraDTO
@@ -45,7 +45,7 @@ public class CorretoraResource {
     }
 
     /**
-     * POST /api/corretora/{nome}: Salver Corretora
+     * POST /api/corretora: Salva Corretora
      *
      * @return CorretoraDTO
      */

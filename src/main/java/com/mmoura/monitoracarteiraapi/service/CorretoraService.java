@@ -30,8 +30,8 @@ public class CorretoraService {
      *
      * @return List CorretoraDTO
      */
-    public List<CorretoraDTO> consultaLikeCorretora(String nome) {
-        return corretoraMapper.toListDto(corretoraRepository.findAllByNoNomeIsLike(nome));
+    public List<CorretoraDTO> consultaCorretoraPorLike(String nome) {
+        return corretoraMapper.toListDto(corretoraRepository.findAllByNoNomeLike(nome));
     }
 
     /**
