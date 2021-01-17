@@ -6,7 +6,6 @@ package com.mmoura.monitoracarteiraapi.service;
 
 import com.mmoura.monitoracarteiraapi.domain.Ativo;
 import com.mmoura.monitoracarteiraapi.repository.AtivoRepository;
-
 import com.mmoura.monitoracarteiraapi.web.dto.AtivoDTO;
 import com.mmoura.monitoracarteiraapi.web.mapper.AtivoMapper;
 import lombok.RequiredArgsConstructor;
@@ -15,8 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Locale;
 import java.util.Optional;
+
 
 @Service
 @RequiredArgsConstructor
@@ -31,18 +30,38 @@ public class AtivoService {
     private AtivoMapper ativoMapper;
 
 
+    /**
+     * Busca Ativos na API por letras contidas em Sigla.
+     *
+     * @return List AtivoDTO
+     */
     public List<AtivoDTO> consultaApiLikeAtivo(String symbol) {
         return apiService.consultaApiLikeAtivo(symbol);
     }
 
+    /**
+     * Busca Ativo na API pela Sigla.
+     *
+     * @return AtivoDTO
+     */
     public AtivoDTO consultaApiAtivo(String symbol) {
         return apiService.consultaApiAtivo(symbol);
     }
 
+    /**
+     * Busca Ativos no BANCO por letras contidas em Sigla.
+     *
+     * @return List AtivoDTO
+     */
     public List<AtivoDTO> consultaLikeAtivo(String symbol) {
-        return ativoMapper.toListDto(ativoRepository.findAtivoByNoSiglaLike(symbol));
+        return ativoMapper.toListDto(ativoRepository.findAllByNoSiglaLike(symbol));
     }
 
+    /**
+     * Busca Ativo no BANCO pela Sigla.
+     *
+     * @return AtivoDTO
+     */
     public AtivoDTO consultaAtivo(String symbol) {
         Optional<Ativo> ativo = ativoRepository.findAtivoByNoSiglaEquals(symbol);
         if (!ativo.isPresent()) {
@@ -51,6 +70,11 @@ public class AtivoService {
         return ativoMapper.toDto(ativoRepository.findAtivoByNoSiglaEquals(symbol).get());
     }
 
+    /**
+     * Salva Ativo no BANCO
+     *
+     * @return AtivoDTO
+     */
     public AtivoDTO salvaAtivo(String symbol) {
         AtivoDTO ativoDTO = this.verificaAtivoBanco(symbol);
         if (ativoDTO.getId() == null) {

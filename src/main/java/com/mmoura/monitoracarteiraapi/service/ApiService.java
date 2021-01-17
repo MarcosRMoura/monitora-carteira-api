@@ -21,6 +21,11 @@ import java.util.List;
 @Slf4j
 public class ApiService {
 
+    /**
+     * Busca Ativo na API pela Sigla.
+     *
+     * @return AtivoDTO
+     */
     public AtivoDTO consultaApiAtivo(String symbol) {
         RestTemplate restTemplate = new RestTemplate();
         UriComponents uri = UriComponentsBuilder.newInstance()
@@ -39,6 +44,11 @@ public class ApiService {
         return ativo;
     }
 
+    /**
+     * Busca Ativo na API por letras contidas na Sigla.
+     *
+     * @return List AtivoDTO
+     */
     public List<AtivoDTO> consultaApiLikeAtivo(String symbol) {
         List<AtivoDTO> listAtivo = new ArrayList<>();
         RestTemplate restTemplate = new RestTemplate();
