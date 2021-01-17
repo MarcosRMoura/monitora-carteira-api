@@ -27,17 +27,17 @@ public class Operacao implements Serializable {
     @Column(name = "ID", nullable = false)
     private Long id;
 
-    @Column(name = "TX_ATIVO", nullable = false)
-    private String noAtivo;
+//    @Column(name = "TX_ATIVO", nullable = false)
+//    private String noAtivo;
 
-    @Column(name = "TX_OPERACAO", nullable = false)
-    private String noNegociacao;
+    @Column(name = "TX_OPERACAO_TIPO_BASE", nullable = false)
+    private String noNegociacaoBase;
 
     @Column(name = "VL_OPERACAO", nullable = false)
     private BigDecimal vlCompra;
 
-    @Column(name = "NU_CONTRATO", nullable = false)
-    private Integer nuContrato;
+    @Column(name = "NUM_CONTRATO", nullable = false)
+    private Integer numContrato;
 
     @Column(name = "VL_BRUTO")
     private BigDecimal vlBruto;
@@ -52,8 +52,12 @@ public class Operacao implements Serializable {
     private LocalDate dtOperacao;
 
 
-//    @Column(name = "ID_USUARIO", nullable = false)
-//    private Long idUsuario;
-//    ??? @Column(name = "ID_CORRETORA", nullable = false)
-//    private Long idCorretora;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_ATIVO", referencedColumnName = "ID")
+    private Ativo ativo;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_NEGOCIACAO", referencedColumnName = "ID")
+    private Negociacao negociacao;
+
 }

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet author="marcos.moura" id="20210117133300-1">
+        <createTable tableName="TB_USUARIO_CORRETORA" remarks="Tabela que armazena os usuários com suas corretoras">
+            <column name="ID_USUARIO" type="BIGINT" remarks="ID do Usuário">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ID_CORRETORA" type="BIGINT" remarks="ID do Corretora">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey tableName="TB_USUARIO_CORRETORA" columnNames="ID_USUARIO, ID_CORRETORA"
+                       constraintName="PK_TB_USUARIO_CORRETORA"/>
+
+        <addForeignKeyConstraint baseTableName="TB_USUARIO_CORRETORA" baseColumnNames="ID_USUARIO"
+                                 constraintName="FK_TB_USUARIO_CORRETORA_USUARIO" referencedTableName="TB_USUARIO"
+                                 referencedColumnNames="ID"/>
+
+        <addForeignKeyConstraint baseTableName="TB_USUARIO_CORRETORA" baseColumnNames="ID_CORRETORA"
+                                 constraintName="FK_TB_USUARIO_CORRETORA_CORRETORA" referencedTableName="TB_CORRETORA"
+                                 referencedColumnNames="ID"/>
+    </changeSet>
+
+</databaseChangeLog> 

@@ -21,6 +21,16 @@ import java.util.List;
 @Slf4j
 public class ApiService {
 
+//  ATUALIZA PAPEL ESPECIFICO
+//  https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=EMBR3.SAO&apikey=K95G5S0NF12WO331
+
+//  BUSCA POR LETRAS CONTIDAS NO SYMBOL
+//  https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=EMBR3&apikey=K95G5S0NF12WO331
+
+//  BUSCA INTRA-DAY PAPEL ESPECIFICO
+//  https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=EMBR3.SAO&apikey=K95G5S0NF12WO331
+
+
     /**
      * Busca Ativo na API pela Sigla.
      *

@@ -10,6 +10,8 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Setter
@@ -27,6 +29,9 @@ public class Negociacao implements Serializable {
     @Column(name = "ID", nullable = false)
     private Long id;
 
+    @Column(name = "TX_TIPO_NEGOCIACAO_BASE", nullable = false)
+    private String noTipoNegociacaoBase;
+
     @Column(name = "TX_TIPO_NEGOCIACAO", nullable = false)
     private String noTipoNegociacao;
 
@@ -42,33 +47,41 @@ public class Negociacao implements Serializable {
     @Column(name = "VL_LIQUIDO")
     private BigDecimal vlLiquido;
 
-    @Column(name = "TX_RESULTADO", nullable = false)
+    @Column(name = "TX_RESULTADO")
     private String noResultado;
 
     @Column(name = "DT_INICIO_NEGOCIACAO", nullable = false)
     private LocalDate dtInicioNegociacao;
 
-    @Column(name = "DT_FIM_NEGOCIACAO", nullable = false)
+    @Column(name = "DT_FIM_NEGOCIACAO")
     private LocalDate dtFimNegociacao;
 
-    @Column(name = "VL_EMTRADA", nullable = false)
+    @Column(name = "VL_ENTRADA", nullable = false)
     private BigDecimal vlEntrada;
 
-    @Column(name = "VL_SAIDA", nullable = false)
+    @Column(name = "VL_SAIDA")
     private BigDecimal vlSaida;
 
     @Column(name = "VL_PRECO_MEDIO", nullable = false)
     private BigDecimal vlPrecoMedio;
 
-    @Column(name = "NUM_QTD_COMPRA", nullable = false)
+    @Column(name = "NUM_QTD_COMPRA")
     private Integer numQtdCompra;
 
-    @Column(name = "NUM_QTD_VENDA", nullable = false)
+    @Column(name = "NUM_QTD_VENDA")
     private Integer numQtdVenda;
 
 
-//    @Column(name = "ID_USUARIO", nullable = false)
-//    private Long idUsuario;
-//    ??? @Column(name = "ID_CORRETORA", nullable = false)
-//    private Long idCorretora;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_USUARIO", referencedColumnName = "ID")
+    private Usuario usuario;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_CORRETORA", referencedColumnName = "ID")
+    private Corretora corretora;
+
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "negociacao")
+    private List<Operacao> operacoes = new ArrayList<>();
+
 }

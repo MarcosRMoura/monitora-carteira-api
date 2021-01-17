@@ -8,6 +8,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Setter
@@ -32,42 +34,51 @@ public class Usuario implements Serializable {
     @Column(name = "TX_CPF", nullable = false)
     private String nuCpf;
 
-    @Column(name = "TX_SEXO", nullable = false)
+    @Column(name = "TX_SEXO")
     private String noSexo;
 
     @Column(name = "DT_NASCIMENTO", nullable = false)
     private String dtNascimento;
 
-    @Column(name = "TX_ENDERECO")
+    @Column(name = "TX_ENDERECO", nullable = false)
     private String noEndereco;
 
-    @Column(name = "NU_ENDERECO")
+    @Column(name = "NU_ENDERECO", nullable = false)
     private String nuEndereco;
 
-    @Column(name = "TX_BAIRRO")
+    @Column(name = "TX_BAIRRO", nullable = false)
     private String noBairro;
 
-    @Column(name = "TX_CIDADE")
+    @Column(name = "TX_CIDADE", nullable = false)
     private String noCidade;
 
-    @Column(name = "NU_CEP")
+    @Column(name = "NU_CEP", nullable = false)
     private String nuCep;
 
-    @Column(name = "TX_ESTADO")
+    @Column(name = "TX_ESTADO", nullable = false)
     private String noEstado;
 
-    @Column(name = "TX_PAIS")
+    @Column(name = "TX_PAIS", nullable = false)
     private String noPais;
 
-    @Column(name = "TX_TELEFONE")
+    @Column(name = "TX_TELEFONE", nullable = false)
     private String nuTelefone;
 
-    @Column(name = "TX_EMAIL")
+    @Column(name = "TX_EMAIL", nullable = false)
     private String noEmail;
 
 
-//    @Column(name = "ID_USUARIO", nullable = false)
-//    private Long idUsuario;
-//    @Column(name = "ID_CORRETORA", nullable = false)
-//    private Long idCorretora;
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = {
+                    CascadeType.ALL,
+            })
+    @JoinTable(name = "TB_USUARIO_CORRETORA",
+            joinColumns = {@JoinColumn(name = "ID_USUARIO")},
+            inverseJoinColumns = {@JoinColumn(name = "ID_CORRETORA")})
+    private List<Corretora> corretoras = new ArrayList();
+
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "usuario")
+    private List<Negociacao> negociacoes = new ArrayList<>();
+
 }
