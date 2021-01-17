@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet author="marcos.moura" id="20210114202900-1">
+        <createTable tableName="TB_CORRETORA" remarks="Tabela que armazena as corretoras">
+            <column name="ID" type="BIGINT" remarks="Identificador da Corretora">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="TX_NOME" type="VARCHAR(50)">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="TX_CNPJ" type="VARCHAR(20)">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="TX_ENDERECO" type="VARCHAR(50)">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="NU_ENDERECO" type="VARCHAR(10)">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="TX_BAIRRO" type="VARCHAR(20)">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="TX_CIDADE" type="VARCHAR(20)">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="NU_CEP" type="VARCHAR(10)">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="TX_ESTADO" type="VARCHAR(20)">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="TX_PAIS" type="VARCHAR(10)">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="TX_TELEFONE" type="VARCHAR(15)">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="TX_EMAIL" type="VARCHAR(20)">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="TX_SITE" type="VARCHAR(50)">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey tableName="TB_CORRETORA" columnNames="ID"
+                       constraintName="PK_TB_CORRETORA"/>
+        <createSequence sequenceName="SEQ_TB_CORRETORA" startValue="1" incrementBy="1"/>
+    </changeSet>
+</databaseChangeLog> 
