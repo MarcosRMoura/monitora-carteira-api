@@ -61,4 +61,10 @@ public class Corretora implements Serializable {
 
     @Column(name = "TX_SITE")
     private String noSite;
+
+
+//    @Column(name = "ID_USUARIO", nullable = false)
+//    private Long idUsuario;
+//    @Column(name = "ID_CORRETORA", nullable = false)
+//    private Long idCorretora;
 }

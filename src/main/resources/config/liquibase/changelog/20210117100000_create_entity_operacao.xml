@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet author="marcos.moura" id="20210117100000-1">
+        <createTable tableName="TB_OPERACAO" remarks="Tabela que armazena os operações">
+            <column name="ID" type="BIGINT" remarks="Identificador da Operação">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="TX_ATIVO" type="VARCHAR(10)">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="TX_OPERACAO" type="VARCHAR(10)">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="VL_OPERACAO" type="FLOAT">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="NU_CONTRATO" type="DATE">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="VL_BRUTO" type="FLOAT">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="VL_TAXAS" type="FLOAT">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="VL_LIQUIDO" type="FLOAT">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="DT_OPERACAO" type="DATE">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+
+        </createTable>
+
+        <addPrimaryKey tableName="TB_OPERACAO" columnNames="ID"
+                       constraintName="PK_TB_OPERACAO"/>
+        <createSequence sequenceName="SEQ_TB_OPERACAO" startValue="1" incrementBy="1"/>
+    </changeSet>
+</databaseChangeLog> 

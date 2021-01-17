@@ -10,8 +10,8 @@
             <column  name="ID"  type="BIGINT" remarks="Identificador do Ativo">
                 <constraints  nullable="false"  primaryKey="false"  unique="false"/>
             </column>
-            <column name="TX_SIGLA" type="VARCHAR(50)">
-                <constraints  nullable="false"  primaryKey="false"  unique="false"/>
+            <column name="TX_SIGLA" type="VARCHAR(10)">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
             </column>
             <column name="TX_NOME" type="VARCHAR(50)">
                 <constraints  nullable="false"  primaryKey="false"  unique="false"/>
