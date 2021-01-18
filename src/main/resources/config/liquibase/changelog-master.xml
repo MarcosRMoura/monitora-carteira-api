@@ -8,6 +8,7 @@
     <include file="config/liquibase/changelog/20210114202900_create_entity_ativo.xml"/>
     <include file="config/liquibase/changelog/20210117001900_create_entity_corretora.xml"/>
     <include file="config/liquibase/changelog/20210117011200_create_entity_usuario.xml"/>
-    <include file="config/liquibase/changelog/20210117100000_create_entity_operacao.xml"/>
     <include file="config/liquibase/changelog/20210117115700_create_entity_negociacao.xml"/>
+    <include file="config/liquibase/changelog/20210117100000_create_entity_operacao.xml"/>
+    <include file="config/liquibase/changelog/20210117133300_create_entity_usuario_corretora.xml"/>
 </databaseChangeLog>

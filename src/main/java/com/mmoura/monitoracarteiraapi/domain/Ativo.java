@@ -8,6 +8,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,9 +39,9 @@ public class Ativo implements Serializable {
     private BigDecimal vlValorAtualizado;
 
     @Column(name = "DT_ATUALIZACAO")
-    private BigDecimal dtAtualizada;
+    private LocalDate dtAtualizada;
 
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "operacao")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "ativo")
     private List<Operacao> operacoes = new ArrayList<>();
 }

@@ -10,7 +10,7 @@
             <column name="ID" type="BIGINT" remarks="Identificador da Operação">
                 <constraints nullable="false" primaryKey="false" unique="false"/>
             </column>
-            <!--            <column name="ID_ATIVO" type="bigint" remarks="Id do Ativo a qual pertence">-->
+            <!--            <column name="ID_ATIVO" type="BIGINT" remarks="Id do Ativo a qual pertence">-->
             <!--                <constraints nullable="false"/>-->
             <!--            </column>-->
             <column name="TX_OPERACAO_BASE" type="VARCHAR(10)">
@@ -33,10 +33,10 @@
             </column>
 
 
-            <column name="ID_ATIVO" type="bigint" remarks="Id do Ativo a qual pertence">
+            <column name="ID_ATIVO" type="BIGINT" remarks="Id do Ativo a qual pertence">
                 <constraints nullable="false"/>
             </column>
-            <column name="ID_NEGOCIACAO" type="bigint" remarks="Id da Negociacao a qual pertence">
+            <column name="ID_NEGOCIACAO" type="BIGINT" remarks="Id da Negociação a qual pertence">
                 <constraints nullable="false"/>
             </column>
         </createTable>
@@ -52,7 +52,7 @@
                                  referencedColumnNames="ID"/>
 
         <addForeignKeyConstraint baseTableName="TB_OPERACAO" baseColumnNames="ID_NEGOCIACAO"
-                                 constraintName="FK_TB_OPERACAO_NEGOCIACAO" referencedTableName="ID_NEGOCIACAO"
+                                 constraintName="FK_TB_OPERACAO_NEGOCIACAO" referencedTableName="TB_NEGOCIACAO"
                                  referencedColumnNames="ID"/>
     </changeSet>
 </databaseChangeLog> 

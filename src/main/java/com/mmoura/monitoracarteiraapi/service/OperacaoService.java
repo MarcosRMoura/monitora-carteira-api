@@ -31,7 +31,7 @@ public class OperacaoService {
      * @return List OperacaoDTO
      */
     public List<OperacaoDTO> consultaOperacaoPorNoSigla(String symbol) {
-        return operacaoMapper.toListDto(operacaoRepository.findByNoAtivo(symbol));
+        return operacaoMapper.toListDto(operacaoRepository.findAllByAtivo_NoSigla(symbol));
     }
 
     /**

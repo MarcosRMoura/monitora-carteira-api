@@ -1,6 +1,8 @@
 package com.mmoura.monitoracarteiraapi.web.dto;
 
 
+import com.mmoura.monitoracarteiraapi.domain.Ativo;
+import com.mmoura.monitoracarteiraapi.domain.Negociacao;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,5 +25,8 @@ public class OperacaoDTO implements Serializable {
     private BigDecimal vlTaxas;
     private BigDecimal vlLiquido;
     private LocalDate dtOperacao;
+
+    private Ativo ativo;
+    private Negociacao negociacao;
 
 }

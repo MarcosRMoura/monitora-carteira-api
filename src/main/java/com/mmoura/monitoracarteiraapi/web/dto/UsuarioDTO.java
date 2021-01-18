@@ -27,4 +27,6 @@ public class UsuarioDTO implements Serializable {
     private String nuTelefone;
     private String noEmail;
 
+//    private List<Corretora> corretoras;
+//    private List<Negociacao> negociacoes;
 }

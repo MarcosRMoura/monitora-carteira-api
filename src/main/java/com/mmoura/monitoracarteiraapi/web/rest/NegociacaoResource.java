@@ -10,8 +10,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @Slf4j
 @RestController
 @RequestMapping("/api/negociacao")
@@ -20,17 +18,17 @@ public class NegociacaoResource {
 
     private final NegociacaoService negociacaoService;
 
-    /**
-     * GET /api/negociacao/ativo/{symbol}: Busca de Operações apartir do NoSigla
-     *
-     * @param symbol: NoSigla para busca de Operações
-     * @return List OperacaoDTO
-     */
-    @GetMapping("/ativo/{symbol}")
-    public ResponseEntity<List<NegociacaoDTO>> consultaNegociacaoPorNoSigla(@PathVariable("symbol") String symbol) {
-        log.debug("Requisição para retornar Operações que contém o Ativo : {}", symbol);
-        return ResponseEntity.ok(negociacaoService.consultaNegociacaoPorNoSigla(symbol));
-    }
+//    /**
+//     * GET /api/negociacao/ativo/{symbol}: Busca de Operações apartir do NoSigla
+//     *
+//     * @param symbol: NoSigla para busca de Operações
+//     * @return List OperacaoDTO
+//     */
+//    @GetMapping("/ativo/{symbol}")
+//    public ResponseEntity<List<NegociacaoDTO>> consultaNegociacaoPorNoSigla(@PathVariable("symbol") String symbol) {
+//        log.debug("Requisição para retornar Operações que contém o Ativo : {}", symbol);
+//        return ResponseEntity.ok(negociacaoService.consultaNegociacaoPorNoSigla(symbol));
+//    }
 
     /**
      * GET /api/negociacao/id/{id}: Busca de Negociação apartir do id

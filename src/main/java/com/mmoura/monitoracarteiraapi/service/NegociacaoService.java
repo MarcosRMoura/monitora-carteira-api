@@ -12,8 +12,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 
 @Service
 @RequiredArgsConstructor
@@ -25,14 +23,14 @@ public class NegociacaoService {
     @Autowired
     private NegociacaoMapper negociacaoMapper;
 
-    /**
-     * Busca Negociações por NoSigla.
-     *
-     * @return List NegociacaoDTO
-     */
-    public List<NegociacaoDTO> consultaNegociacaoPorNoSigla(String symbol) {
-        return negociacaoMapper.toListDto(negociacaoRepository.findByNoAtivo(symbol));
-    }
+//    /**
+//     * Busca Negociações por NoSigla.
+//     *
+//     * @return List NegociacaoDTO
+//     */
+//    public List<NegociacaoDTO> consultaNegociacaoPorNoSigla(String symbol) {
+//        return negociacaoMapper.toListDto(negociacaoRepository.findByNoAtivo(symbol));
+//    }
 
     /**
      * Busca Operação pelo ID.

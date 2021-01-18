@@ -12,5 +12,5 @@ import java.util.List;
 @Repository
 public interface OperacaoRepository extends JpaRepository<Operacao, Long> {
 
-    List<Operacao> findByNoAtivo(@Param("sybol") String symbol);
+    List<Operacao> findAllByAtivo_NoSigla(@Param("sybol") String symbol);
 }

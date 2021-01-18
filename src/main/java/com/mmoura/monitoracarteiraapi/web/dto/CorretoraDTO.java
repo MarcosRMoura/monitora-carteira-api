@@ -26,4 +26,6 @@ public class CorretoraDTO implements Serializable {
     private String noEmail;
     private String noSite;
 
+//    private List<Negociacao> negociacoes;
+
 }

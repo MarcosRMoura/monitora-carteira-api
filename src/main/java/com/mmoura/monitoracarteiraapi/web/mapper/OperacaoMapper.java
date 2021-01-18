@@ -13,7 +13,8 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface OperacaoMapper {
 
-    Operacao toEntity(OperacaoDTO operacaoDTO);
+//    @Mapping(source = "idAtivo", target = "ativo")
+Operacao toEntity(OperacaoDTO operacaoDTO);
 
     OperacaoDTO toDto(Operacao operacao);
 

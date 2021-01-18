@@ -1,6 +1,8 @@
 package com.mmoura.monitoracarteiraapi.web.dto;
 
 
+import com.mmoura.monitoracarteiraapi.domain.Corretora;
+import com.mmoura.monitoracarteiraapi.domain.Usuario;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -29,4 +31,6 @@ public class NegociacaoDTO implements Serializable {
     private Integer numQtdCompra;
     private Integer numQtdVenda;
 
+    private Usuario usuario;
+    private Corretora corretora;
 }
