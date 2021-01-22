@@ -22,7 +22,7 @@ public class UsuarioService {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
-    @Autowired
+
     private UsuarioMapper usuarioMapper;
 
     /**
@@ -31,7 +31,7 @@ public class UsuarioService {
      * @return List UsuarioDTO
      */
     public List<UsuarioDTO> consultaUsuarioPorLike(String cpf) {
-        return usuarioMapper.toListDto(usuarioRepository.findAllByNuCpfLike(cpf));
+        return usuarioMapper.MAPPER.toListDto(usuarioRepository.findAllByNuCpfLike(cpf));
     }
 
     /**
@@ -40,7 +40,7 @@ public class UsuarioService {
      * @return UsuarioDTO
      */
     public UsuarioDTO consultaUsuarioPorId(Long id) {
-        return usuarioRepository.findById(id).map(usuarioMapper::toDto).orElse(null);
+        return usuarioRepository.findById(id).map(usuarioMapper.MAPPER::toDto).orElse(null);
     }
 
     /**
@@ -49,6 +49,7 @@ public class UsuarioService {
      * @return UsuarioDTO
      */
     public UsuarioDTO salvaUsuario(UsuarioDTO usuarioDTO) {
-        return usuarioMapper.toDto(usuarioRepository.save(usuarioMapper.toEntity(usuarioDTO)));
+        usuarioRepository.save(usuarioMapper.MAPPER.toEntity(usuarioDTO));
+        return usuarioDTO;
     }
 }

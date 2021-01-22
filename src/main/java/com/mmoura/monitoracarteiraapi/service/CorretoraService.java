@@ -20,8 +20,10 @@ import java.util.List;
 @Slf4j
 public class CorretoraService {
 
+
     @Autowired
     private CorretoraRepository corretoraRepository;
+
     @Autowired
     private CorretoraMapper corretoraMapper;
 

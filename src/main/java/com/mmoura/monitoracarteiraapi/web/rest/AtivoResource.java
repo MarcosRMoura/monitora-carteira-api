@@ -2,15 +2,19 @@ package com.mmoura.monitoracarteiraapi.web.rest;
 
 //import br.com.funpresp.saladoparticipante.spservice.service.FeriadoService;
 //import com.codahale.metrics.annotation.Timed;
+
 import com.mmoura.monitoracarteiraapi.service.AtivoService;
 import com.mmoura.monitoracarteiraapi.web.dto.AtivoDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Slf4j
@@ -18,7 +22,9 @@ import java.util.List;
 @RequestMapping("/api/ativo")
 @RequiredArgsConstructor
 public class AtivoResource {
-    private final AtivoService ativoService;
+
+    @Autowired
+    private AtivoService ativoService;
 
     /**
      * GET /api/ativo/consulta/{symbol}: Busca de Ativos apartir de letras na api

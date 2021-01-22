@@ -24,9 +24,10 @@ public class AtivoService {
 
     @Autowired
     private ApiService apiService;
+
     @Autowired
     private AtivoRepository ativoRepository;
-    @Autowired
+
     private AtivoMapper ativoMapper;
 
 

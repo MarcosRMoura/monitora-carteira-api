@@ -9,7 +9,6 @@ import com.mmoura.monitoracarteiraapi.web.dto.NegociacaoDTO;
 import com.mmoura.monitoracarteiraapi.web.mapper.NegociacaoMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
@@ -18,9 +17,9 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class NegociacaoService {
 
-    @Autowired
+
     private NegociacaoRepository negociacaoRepository;
-    @Autowired
+
     private NegociacaoMapper negociacaoMapper;
 
 //    /**
