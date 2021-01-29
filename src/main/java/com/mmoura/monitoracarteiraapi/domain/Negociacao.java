@@ -6,7 +6,18 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -71,6 +82,9 @@ public class Negociacao implements Serializable {
     @Column(name = "NUM_QTD_VENDA")
     private Integer numQtdVenda;
 
+    @Column(name = "NO_SIGLA")
+    private String noSigla;
+
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_USUARIO", referencedColumnName = "ID")
@@ -80,8 +94,18 @@ public class Negociacao implements Serializable {
     @JoinColumn(name = "ID_CORRETORA", referencedColumnName = "ID")
     private Corretora corretora;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_ATIVO", referencedColumnName = "ID")
+    private Ativo ativo;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_CARTEIRA", referencedColumnName = "ID")
+    private Carteira carteira;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "negociacao")
     private List<Operacao> operacoes = new ArrayList<>();
+
+//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "negociacao")
+//    private List<Carteira> carteiras = new ArrayList<>();
 
 }
